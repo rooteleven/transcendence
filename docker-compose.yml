@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  dev-db:
+      image: postgres:13
+      ports:
+        - 5434:5432
+      environment:
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: 123
+        POSTGRES_DB: nest
+      networks:
+        - transcendence
+
+  backend:
+      build:
+        context: ./backend
+      restart: always
+      ports:
+        - "3000:3000"
+      depends_on:
+        - dev-db
+      networks:
+        - transcendence
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "8080:8080"
+    depends_on:
+      - backend
+    networks:
+      - transcendence
+
+networks:
+  transcendence:
+    driver: bridge
