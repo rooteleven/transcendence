@@ -1,22 +1,21 @@
-FROM node:19-alpine3.16
+FROM node:19-alpine
 
-# Create app directory
 WORKDIR /usr/src/app
 
-# Install app dependencies
-# A wildcard is used to ensure both package.json AND package-lock.json are copied
-# where available (npm@5+)
 COPY package*.json ./
 
 RUN npm install
-# If you are building your code for production
-# RUN npm ci --only=production
 
-# Bundle app source
 COPY . .
+
+# The prisma generate command generates code or artifacts based on your Prisma schema, which is defined in a file called schema.prisma.
+
+RUN npx prisma generate
 
 RUN npm run build
 
 EXPOSE 3000
 
-CMD [ "npm", "start" ]
+# Implement npx prisma migrate dev
+
+CMD [ "sh", "./entrypoint.sh" ]

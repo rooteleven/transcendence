@@ -17,7 +17,7 @@ export default {
   methods: {
     async getData() {
       try {
-        const response = await axios.get('http://localhost:3000/metacultivation');
+        const response = await axios.get('http://localhost:3000/test/metacultivation');
         this.data = response.data;
       } catch (error) {
         console.error(error);

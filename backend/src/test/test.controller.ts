@@ -4,6 +4,7 @@ import { Controller, Get } from '@nestjs/common';
 export class TestController {
     @Get('metacultivation')
     getme() {
-        return 'some data';
+        console.log("METACULTIVATION")
+        return 'metacultivation page';
     }
 }
