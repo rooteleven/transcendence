@@ -5,6 +5,7 @@ import { BookmarkModule } from './bookmark/bookmark.module';
 import { PrismaModule } from './prisma/prisma.module';
 import { ConfigModule } from '@nestjs/config';
 import { TestModule } from './test/test.module';
+import { ChatGateway } from './chat/chat.gateway';
 
 @Module({
   imports: [ConfigModule.forRoot({
@@ -15,5 +16,6 @@ import { TestModule } from './test/test.module';
             TestModule,
             BookmarkModule,
             PrismaModule],
+  providers: [ChatGateway],
 })
 export class AppModule {}

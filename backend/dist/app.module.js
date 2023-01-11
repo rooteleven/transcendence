@@ -13,6 +13,8 @@ const user_module_1 = require("./user/user.module");
 const bookmark_module_1 = require("./bookmark/bookmark.module");
 const prisma_module_1 = require("./prisma/prisma.module");
 const config_1 = require("@nestjs/config");
+const test_module_1 = require("./test/test.module");
+const chat_gateway_1 = require("./chat/chat.gateway");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -22,8 +24,10 @@ AppModule = __decorate([
             }),
             auth_module_1.AuthModule,
             user_module_1.UserModule,
+            test_module_1.TestModule,
             bookmark_module_1.BookmarkModule,
             prisma_module_1.PrismaModule],
+        providers: [chat_gateway_1.ChatGateway],
     })
 ], AppModule);
 exports.AppModule = AppModule;

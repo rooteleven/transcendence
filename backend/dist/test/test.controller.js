@@ -13,7 +13,8 @@ exports.TestController = void 0;
 const common_1 = require("@nestjs/common");
 let TestController = class TestController {
     getme() {
-        return 'some data';
+        console.log("METACULTIVATION");
+        return 'metacultivation page';
     }
 };
 __decorate([
